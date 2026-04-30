@@ -25,6 +25,21 @@ function readUsers() {
 function writeUsers(users) {
   fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 }
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (!token) {
+    return res.status(401).json({ message: "Токен не предоставлен" });
+  }
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: "Неверный токен" });
+    }
+    req.user = user;
+    next();
+  });
+}
 
 app.post("/api/register", async (req, res) => {
   try {
@@ -75,6 +90,14 @@ app.post("/api/login", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Ошибка сервера" });
   }
+});
+app.get("/api/profile", authenticateToken, (req, res) => {
+  const users = readUsers();
+  const user = users.find((u) => u.id === req.user.id);
+  if (!user) {
+    return res.status(404).json({ message: "Пользователь не найден" });
+  }
+  res.json({ id: user.id, email: user.email });
 });
 
 app.listen(PORT, () => console.log(`Сервер запущен: http://localhost:${PORT}`));
