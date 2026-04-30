@@ -3,7 +3,7 @@ import { useAppSelector } from "./hooks/redux";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 
-const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const token = useAppSelector((state) => state.user.token);
   if (!token) return <Navigate to="/login" replace />;
   return children;
