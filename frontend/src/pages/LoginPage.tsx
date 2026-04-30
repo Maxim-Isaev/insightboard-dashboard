@@ -29,7 +29,7 @@ const LoginPage = () => {
         }),
       );
       navigate("/dashboard");
-    } catch (err) {
+    } catch {
       setError("Ошибка входа");
     }
   };
