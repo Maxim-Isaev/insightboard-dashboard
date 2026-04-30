@@ -8,11 +8,10 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  token: localStorage.getItem("token"),
+  token: typeof window !== "undefined" ? localStorage.getItem("token") : null,
   email: null,
   id: null,
 };
-
 const userSlice = createSlice({
   name: "user",
   initialState,
