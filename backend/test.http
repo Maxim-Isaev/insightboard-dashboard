@@ -15,3 +15,7 @@ Content-Type: application/json
   "email": "vasya@example.com",
   "password": "123456"
 }
+
+### Получение профиля
+GET http://localhost:5000/api/profile
+Authorization: Bearer <token>
