@@ -76,6 +76,9 @@ function validateItemFields(title, description) {
   return { valid: true };
 }
 
+// Аутентификация и регистрация
+
+// Регистрация нового пользователя
 app.post("/api/register", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -102,6 +105,8 @@ app.post("/api/register", async (req, res) => {
     res.status(500).json({ message: "Ошибка сервера" });
   }
 });
+
+// Вход пользователя
 app.post("/api/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -126,6 +131,8 @@ app.post("/api/login", async (req, res) => {
     res.status(500).json({ message: "Ошибка сервера" });
   }
 });
+
+// Получить профиль текущего пользователя
 app.get("/api/profile", authenticateToken, (req, res) => {
   const users = readUsers();
   const user = users.find((u) => u.id === req.user.id);
