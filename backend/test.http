@@ -19,3 +19,31 @@ Content-Type: application/json
 ### Получение профиля
 GET http://localhost:5000/api/profile
 Authorization: Bearer <token>
+
+### Получение всех элементов
+GET http://localhost:5000/api/items
+Authorization: Bearer <token>
+
+### Создание элемента
+POST http://localhost:5000/api/items
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "title": "Новая задача",
+  "description": "Описание новой задачи"
+}
+
+### Редактирование элемента, где 1 - это id элемента
+PUT http://localhost:5000/api/items/1
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "title": "Обновленная задача",
+  "description": "Описание обновленной задачи"
+}
+
+### Удаление элемента, где 1 - это id элемента
+DELETE http://localhost:5000/api/items/1
+Authorization: Bearer <token>
