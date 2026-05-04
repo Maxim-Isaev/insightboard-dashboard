@@ -111,4 +111,9 @@ const itemsSlice = createSlice({
 });
 
 export const { clearError } = itemsSlice.actions;
+export interface ItemState {
+  items: Item[];
+  loading: boolean;
+  error: string | null;
+}
 export default itemsSlice.reducer;
