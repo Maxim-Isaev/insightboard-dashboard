@@ -3,6 +3,11 @@ import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchItems, addItem, editItem, removeItem } from "../store/ItemsSlice";
 import type { Item } from "../api/itemsApi";
 import LineChart from "../components/Charts/LineChart";
+import WelcomeMessage from "../components/Dashboard/WelcomeMessage";
+import ItemForm from "../components/Dashboard/ItemForm";
+import ItemList from "../components/Dashboard/ItemList";
+import Layout from "../components/Layout/Layout";
+import styles from "./DashboardPage.module.css";
 
 const DashboardPage = () => {
   const dispatch = useAppDispatch();
@@ -51,49 +56,42 @@ const DashboardPage = () => {
     ],
   };
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Добро пожаловать в дашборд InsightBoard!</h1>
-      <LineChart ChartData={ChartData} title="Активность за неделю" />
+    <Layout>
+      <div className={styles.dashboard}>
+        <WelcomeMessage />
+        <div className={styles.container}>
+          <div className={styles.columns}>
+            <div className={styles.chartSection}>
+              <h2>Графики</h2>
+              <LineChart ChartData={ChartData} title="Активность за неделю" />
+            </div>
+          </div>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1px",
-          maxWidth: "200px",
-        }}
-      >
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Название"
-          required
-        />
-        <input
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Описание"
-          required
-        />
-        <button type="submit">
-          {editingItemId ? "Редактировать" : "Добавить"}
-        </button>
-      </form>
+          <div className={styles.columns}>
+            <div className={styles.formSection}>
+              <ItemForm
+                title={title}
+                setTitle={setTitle}
+                description={description}
+                setDescription={setDescription}
+                handleSubmit={handleSubmit}
+                editingItemId={editingItemId}
+              />
+            </div>
 
-      {loading && <p>Загрузка...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <ul>
-        {items.map((item: Item) => (
-          <li key={item.id}>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <button onClick={() => handleEdit(item)}>Редактировать</button>
-            <button onClick={() => handleDelete(item.id)}>Удалить</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+            <div className={styles.listSection}>
+              <ItemList
+                items={items}
+                loading={loading}
+                error={error}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
 };
 export default DashboardPage;

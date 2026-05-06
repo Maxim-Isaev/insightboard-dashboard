@@ -1,0 +1,58 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form h2 {
+  background: #fbe88a;
+  border-radius: 1rem;
+  margin: 0 0 2rem 0;
+  padding: 1rem;
+  box-shadow: 0 4px 12px #0000000d;
+}
+
+.form textarea {
+  resize: none;
+}
+
+.title,
+.description {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.description {
+  min-height: 6rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons button {
+  padding: 0.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.buttons button:hover {
+  background-color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    justify-content: stretch;
+  }
+  .buttons button {
+    width: 100%;
+    text-align: center;
+  }
+}

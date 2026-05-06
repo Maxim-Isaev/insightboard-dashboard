@@ -1,0 +1,29 @@
+.listContainer {
+  gap: 1rem;
+}
+
+.listContainer h2 {
+  background: #fbe88a;
+  border-radius: 1rem;
+  margin: 0 0 2rem 0;
+  padding: 1rem;
+  box-shadow: 0 4px 12px #0000000d;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.list > * {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

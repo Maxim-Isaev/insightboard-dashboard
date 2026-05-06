@@ -1,0 +1,54 @@
+.dashboard {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.columns {
+  flex: 1;
+}
+
+.chartSection,
+.formSection,
+.listSection {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.chartSection h2 {
+  background: #fbe88a;
+  border-radius: 1rem;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  box-shadow: 0 4px 12px #0000000d;
+}
+
+.formSection {
+  padding: 1.5rem;
+}
+
+.listSection {
+  margin-top: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .chartSection,
+  .formSection,
+  .listSection {
+    padding: 0.75rem;
+  }
+}

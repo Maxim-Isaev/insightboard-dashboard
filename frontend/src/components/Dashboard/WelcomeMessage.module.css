@@ -1,0 +1,25 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  text-align: center;
+  background: #fbe88a;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px #0000000d;
+}
+
+.welcome h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #1f2937;
+}
+
+.welcome p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0;
+}
