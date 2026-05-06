@@ -32,3 +32,16 @@
 .logoutBtn:hover {
   background-color: #dc2626;
 }
+
+.logoutBtn:focus {
+  outline: 2px solid #2563eb;
+  @media (max-width: 768px) {
+    .buttons button {
+      width: 100%;
+    }
+  }
+}
+
+.logoutBtn:focus:not(:focus-visible) {
+  outline: none;
+}

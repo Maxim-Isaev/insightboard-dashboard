@@ -47,9 +47,22 @@
   background-color: #2563eb;
 }
 
+.buttons button:focus {
+  outline: 2px solid #2563eb;
+  @media (max-width: 768px) {
+    .buttons button {
+      width: 100%;
+    }
+  }
+}
+
+.buttons button:focus:not(:focus-visible) {
+  outline: none;
+}
+
 @media (max-width: 768px) {
   .buttons {
-    justify-content: stretch;
+    justify-content: center;
   }
   .buttons button {
     width: 100%;
