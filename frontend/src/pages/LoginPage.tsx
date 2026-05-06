@@ -4,6 +4,7 @@ import { useAppDispatch } from "../hooks/redux";
 import { setCredentials } from "../store/userSlice";
 import { login } from "../api/authApi";
 import { getProfile } from "../api/authApi";
+import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -35,32 +36,34 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Вход в InsightBoard</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div style={{ marginTop: "0.5rem" }}>
-          <input
-            type="password"
-            placeholder="Пароль"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" style={{ marginTop: "1rem" }}>
-          Войти
-        </button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2>Вход в InsightBoard</h2>
+        {error && <p className={styles.error}>{error}</p>}
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.inputGroup}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <input
+              type="password"
+              placeholder="Пароль"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className={styles.button}>
+            Войти
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
