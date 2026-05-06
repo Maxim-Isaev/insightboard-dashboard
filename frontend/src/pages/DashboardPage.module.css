@@ -51,4 +51,8 @@
   .listSection {
     padding: 0.75rem;
   }
+
+  .chartSection > div {
+    height: 200px !important;
+  }
 }

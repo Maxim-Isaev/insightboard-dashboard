@@ -23,7 +23,7 @@
 .container h2 {
   background: #fbe88a;
   border-radius: 1rem;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem;
   padding: 1rem;
   box-shadow: 0 4px 12px #0000000d;
 }
@@ -75,10 +75,11 @@
   outline: none;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .card {
     padding: 1.5rem;
-    max-width: 90%;
+    max-width: 80%;
+    margin-top: 100%;
   }
 
   .container h2 {
