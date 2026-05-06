@@ -24,9 +24,14 @@ const ItemList = ({
     <div className={styles.listContainer}>
       <h2>Список задач</h2>
       <div className={styles.list}>
-        {items.map((item: Item) => (
-          <ItemCard item={item} onEdit={onEdit} onDelete={onDelete} />
-        ))}
+        {items.map((item) => (
+          <ItemCard
+            key={item.id}
+            item={item}
+            onEdit={onEdit}
+            onDelete={onDelete}
+          />
+        ))}{" "}
       </div>
     </div>
   );
