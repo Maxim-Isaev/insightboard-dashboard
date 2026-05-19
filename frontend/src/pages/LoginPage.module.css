@@ -75,6 +75,34 @@
   outline: none;
 }
 
+.tabs {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-bottom 0.2s;
+}
+
+.tab:hover {
+  color: #3b82f6;
+}
+
+.activeTab {
+  color: #3b82f6;
+  border-bottom: 2px solid #3b82f6;
+}
+
 @media (max-width: 768px) {
   .card {
     padding: 1.5rem;
@@ -94,6 +122,10 @@
 
   .button {
     padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .tab {
+    padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
   }
 }
