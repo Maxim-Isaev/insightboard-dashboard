@@ -41,7 +41,7 @@ const LoginPage = () => {
         setIsLogin(true);
         setPassword("");
       } catch {
-        setError("Пользователь с такими email уже существует.");
+        setError("Ошибка регистрации. Попробуйте снова.");
       }
     }
   };
